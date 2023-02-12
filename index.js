@@ -280,8 +280,8 @@ if (update.connection == "open" || update.receivedPendingNotifications == "true"
 	global.creator = ['6285692006004']
 	let imgown = await getBuffer('https://telegra.ph/file/4ea5b7309bb948e62bc3a.jpg')
 	let imgcrea = await getBuffer('https://telegra.ph/file/b8aa5d61ad7bc8eb90e43.jpg')
-	let butcrea = [{ buttonId: `.owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `.ping`, buttonText: { displayText: 'Status Bot' }, type: 1 }]
-        let butown = [{ buttonId: `.owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `.ping`, buttonText: { displayText: 'Status Bot' }, type: 1 }]
+	let butcrea = [{ buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `ping`, buttonText: { displayText: 'Status Bot' }, type: 1 }]
+        let butown = [{ buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `ping`, buttonText: { displayText: 'Status Bot' }, type: 1 }]
 	let txtown = `Halo Owner, Bot Telah Berhasil Tersambung Pada Nomer Ini \n\nJika Menemukan Eror, Bug, Atau Ingin Request Fitur Silahkan Hubungi Nomer Tersebut!`
 	let txtcrea = `Script ini telah dipakai oleh\nID: ${global.owner}@s.whatsapp.net`
 	lolcatjs.fromString('Sukses Mengirim Pesan Ke Owner Dan Creator ☑️')
