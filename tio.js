@@ -3212,6 +3212,14 @@ Keterangan: ${cuaca.weather[0].description}
 Udara: ${cuaca.main.pressure + " HPa"}`
 m.reply(text_cuaca)
 break
+case 'getcase': case 'c': 
+ if (!isCreator) return m.reply(mess.owner)
+const getCase = (cases) => {
+return "case"+`'${cases}'`+fs.readFileSync("./tio.js").toString().split('case \''+cases+'\'')[1].split("break")[0]+"break"
+}
+m.reply(`${getCase(q)}`)
+.catch((err) => m.reply(mess.error))
+break
 	        case 'img': case 'pinterest': case 'image': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
@@ -3802,6 +3810,7 @@ oner = `╭──❍「 *Owner Menu* 」
 │ *»* ${prefix}setexif
 │ *»* ${prefix}setmenu [option]
 │ *»* ${prefix}setowner
+│ *»* ${prefix}getcase
 │ *»* ${prefix}public
 │ *»* ${prefix}addprem/delprem
 ╰────❍`
@@ -4082,6 +4091,7 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 │ *»* ${prefix}setmenu [option]
 │ *»* ${prefix}setowner
 │ *»* ${prefix}public
+│ *»* ${prefix}getcase
 │ *»* ${prefix}addprem/delprem
 ╰────❍`
                 let buttons = [{ buttonId: 'donasi', buttonText: { displayText: 'Donasi' }, type: 1 },{ buttonId: 'rules', buttonText: { displayText: 'Rules' }, type: 1 }]
