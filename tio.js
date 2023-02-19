@@ -188,14 +188,14 @@ module.exports = tio = async (tio, m, chatUpdate, store) => {
         }
         //  Di sini editing autovn dan auto ketik
         // selebihnya jangan di edit nanti error
-       if (m.message) {
+       /**if (m.message) {
 tio.sendPresenceUpdate('composing', m.chat)
 tio.readMessages([m.key])
 }
  if (m.message) {
 tio.sendPresenceUpdate('recording', m.chat)
 tio.readMessages([m.key])
-}
+}**/
 
 
         if (m.text.includes('🗿')) {
