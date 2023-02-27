@@ -21,6 +21,8 @@ $ pm2 start "npm start" && pm2 save && pm2 logs
 
 $ pm2 start "npm start" && pm2 [token] && pm2 save && pm2 logs
 ```
+## Free Hosting With uffizzi.com
+[`Deploy Now`](https://www.uffizzi.com/)
 
 ## Group Discussion
 - Join grup jika kamu nanya, kamu bertanya-tanya.
