@@ -1,4 +1,4 @@
-- Daftar terlebih dahulu akun effizzi
+- Daftar terlebih dahulu akun uffizzi
 - Setelah daftar Koneksikan dengan Github 
 - Setelah selesai mengkoneksikan nya lalu pilih repo yang akan di jalankan
 - Pilih brach yang digunakan Example ```main``` 
