@@ -1,3 +1,5 @@
+//Merupakan ubah nomor owner dan wm di sini 
+
 const fs = require('fs')
 const chalk = require('chalk')
 global.owner = ['6281395861695']
@@ -35,7 +37,6 @@ global.faall = fs.readFileSync('./media/image/fake.jpg')
 global.mygit = 'https://github.com/BOTCAHX'
 global.webmy = 'https://api.botcahx.biz.id'
 global.ghme = 'https://github.com/BOTCAHX'
-global.gcbot = "https://api.botcahx.biz.id"
 global.botname = 'BOTCAHX'
 global.omlen = '© TioXd'
 global.weem = 'BOTCAHX'
