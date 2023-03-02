@@ -100,9 +100,9 @@ $ npm start
 ## Thanks To
 * [`@adiwajshing/baileys`](https://github.com/adiwajshing/baileys)
 * [`Nurutomo`](https://github.com/Nurutomo)
-* [`BOTCAHX`](https://github.com/MhankBarBar)
+* [`BOTCAHX`](https://github.com/BOTCAHX)
 * [`DikaArdnt`](https://github.com/DikaArdnt)
-* [`Fatih Arridho`](https://github.com/BOTCAHX)
+* [`Fatih Arridho`]https://github.com/FatihArridho)
 * [`Naze Dev`](https://github.com/nazedev)
 * [`AzRyCb`](https://github.com/AzRyCb)
 * [`ERLANRAHMAT`](https://github.com/ERLANRAHMAT)
