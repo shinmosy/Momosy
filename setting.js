@@ -1,4 +1,4 @@
-//Merupakan ubah nomor owner dan wm di sini 
+//ubah nomor owner dan wm di sini 
 
 const fs = require('fs')
 const chalk = require('chalk')
