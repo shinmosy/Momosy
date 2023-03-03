@@ -102,7 +102,7 @@ $ npm start
 * [`Nurutomo`](https://github.com/Nurutomo)
 * [`BOTCAHX`](https://github.com/BOTCAHX)
 * [`DikaArdnt`](https://github.com/DikaArdnt)
-* [`Fatih Arridho`]https://github.com/FatihArridho)
+* [`Fatih Arridho`](https://github.com/FatihArridho)
 * [`Naze Dev`](https://github.com/nazedev)
 * [`AzRyCb`](https://github.com/AzRyCb)
 * [`ERLANRAHMAT`](https://github.com/ERLANRAHMAT)
