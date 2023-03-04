@@ -65,7 +65,7 @@ async  startTio() {
     const tio = tioConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['BOTCAHX','Safari','1.0.0'],
+        browser: ['BOTCAHX','Safari',''],
         auth: state,
 	generateHighQualityLinkPreview: true
     })
