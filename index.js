@@ -61,7 +61,7 @@ if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
   }, 30 * 1000)
 
-async funtion startTio() {
+async function startTio() {
     const tio = tioConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
