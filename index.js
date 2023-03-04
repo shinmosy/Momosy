@@ -1,5 +1,5 @@
 require('./setting')
-const { default: tioConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
+const { default: tioConnect, useSingleFileAuthState, DisconnectReason, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
 const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
 const pino = require('pino')
 const { Boom } = require('@hapi/boom')
@@ -61,14 +61,14 @@ if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
   }, 30 * 1000)
 
-async function startTio() {
+async  startTio() {
     const tio = tioConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
         browser: ['BOTCAHX','Safari','1.0.0'],
-        auth: state
+        auth: state,
+	generateHighQualityLinkPreview: true
     })
-
     store.bind(tio.ev)
     
     // anticall auto block
