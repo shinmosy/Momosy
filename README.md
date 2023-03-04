@@ -1,5 +1,5 @@
 # CATATAN ( NOTE )
-- sc ini hanyalah hasil recode dari sc asli hisoka
+- Script ini hanyalah hasil recode dari sc asli Hisoka-Morrow
 saya hanya memperbaiki sebagian fitur yg error.
 - Hosting gratis menggunakan panel register [`Disini`](https://billing.botcahx.biz.id)
 <p align="center">
@@ -10,7 +10,7 @@ saya hanya memperbaiki sebagian fitur yg error.
 This is Script of WhatsApp multi device, working with [`@adiwajshing/baileys`](https://github.com/adiwajshing/baileys)
 
 ## NOTE
-- Script ini untuk semua orang, bukan untuk Dijual. 
+- Script ini untuk semua orang, bukan untuk Dijual apalagi disalah gunakan. 
 - Jika apikey habis atau expired daftar [`Disini`](https://api.botcahx.biz.id)
 - Gunakan pm2 agar bot tetap online tanpa harus me-restart manual di terminal.
 ```bash
@@ -25,7 +25,7 @@ $ pm2 start "npm start" && pm2 [token] && pm2 save && pm2 logs
 [`Deploy Now`](https://www.uffizzi.com/)
 
 ## Group Discussion
-- Join grup jika kamu nanya, kamu bertanya-tanya.
+- Join grup dibawah jika kamu ada pertanyaan, kamu bertanya-tanya?.
 [`Group Link`](https://chat.whatsapp.com/D6BZVRSymWaFU28t2lxaO0)
 ## My Project
 * Script Plugins [`Go here`](https://github.com/BOTCAHX/RTXZY-MD) (`Multiple Sessions Bot`)
@@ -70,19 +70,17 @@ tio.readMessages([m.key])
 ```bash
 git clone https://github.com/BOTCAHX/Hoream-MD 
 cd Hoream-MD 
-npm install
+npm install && npm update
 ```
 
 ## FOR TERMUX/UBUNTU/SSH USER
 
 ```bash
 apt update && apt upgrade
-apt install git -y
-apt install nodejs -y
-apt install ffmpeg -y
+apt install git nodejs ffmpeg -y
 git clone https://github.com/BOTCAHX/Hoream-MD 
 cd Hoream-MD 
-npm install
+npm install && npm update
 ```
 
 ## RECOMMENDED INSTALL ON TERMUX
