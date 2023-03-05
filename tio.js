@@ -3220,7 +3220,32 @@ return "case"+`'${cases}'`+fs.readFileSync("./tio.js").toString().split('case \'
 m.reply(`${getCase(q)}`)
 .catch((err) => m.reply(mess.error))
 break
-	        case 'img': case 'pinterest': case 'image': {
+	case'true' : {
+            if(!text && !text.startsWith("+")) return m.reply('*Error : Please Give Correct Format number* \n*Example :*.true +6281395861695')
+             await tio.sendMessage(m.chat, { react: { text: `🔍`, key: m.key }})
+              await tio.sendMessage(m.chat, { react: { text: `📞`, key: m.key }})
+            const api = await fetchJson(`https://outrageous-fish-dress.cyclic.app/api/other/truecaller?number=${args[0]}`)
+const msg = `*${m.pushName} Your Number Truecaller Restarts*
+
+
+*◈ Name* ${api.data.data[0].name}
+*◈ Access* ${api.data.data[0].access}
+*◈ Score* ${api.data.data[0].score}
+*◈ E164* ${api.data.data[0].phones[0].e164Format}
+*◈ National* ${api.data.data[0].phones[0].nationalFormat}
+*◈ D Code* ${api.data.data[0].phones[0].dialingCode}
+*◈ Country Code* ${api.data.data[0].phones[0].countryCode}
+*◈ Time Zone* ${api.data.data[0].addresses[0].timeZone}
+*◈ Company* ${api.data.data[0].phones[0].carrier}
+*◈ Type* ${api.data.data[0].phones[0].type}
+
+*© BOTCAHX*`
+const truei = await m.reply(msg)
+ await tio.sendMessage(m.chat, { react: { text: `📋`, key: truei.key }})
+ await tio.sendMessage(m.chat, { react: { text: `✅`, key: m.key }})
+            }
+            break
+        case 'img': case 'pinterest': case 'image': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
 		       let { pinterest } = require('./lib/scraper')
@@ -3546,6 +3571,7 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
             break
             case 'msearch': {
 sarch = `╭──❍「 *Search Menu* 」
+│ *»* ${prefix}true [+6288]
 │ *»* ${prefix}play [query]
 │ *»* ${prefix}yts [query]
 │ *»* ${prefix}google [query]
@@ -3889,6 +3915,7 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 │ *»* ${prefix}cuaca
 ╰────❍
 ╭──❍「 *Search Menu* 」
+│ *»* ${prefix}true [+6288]
 │ *»* ${prefix}play [query]
 │ *»* ${prefix}yts [query]
 │ *»* ${prefix}google [query]
