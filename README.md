@@ -12,6 +12,7 @@ This is Script of WhatsApp multi device, working with [`@adiwajshing/baileys`](h
 ## NOTE
 - Script ini untuk semua orang, bukan untuk Dijual apalagi disalah gunakan. 
 - Jika apikey habis atau expired daftar [`Disini`](https://api.botcahx.biz.id)
+- Jika Butuh Apikey Lain Daftar [`Disini`](https://api.lannn.me)
 - Gunakan pm2 agar bot tetap online tanpa harus me-restart manual di terminal.
 ```bash
 $ npm install -g pm2
@@ -23,6 +24,12 @@ $ pm2 start "npm start" && pm2 [token] && pm2 save && pm2 logs
 ```
 ## Free Hosting With uffizzi.com
 [`Deploy Now`](https://www.uffizzi.com/)
+
+## Ingin Hosting Di Heroku Lagi?
+[`Beli Disini`](https://wa.me/6285842647866?text=Bang+Mau+Beli+Heroku+:))
+
+## Ingin Beli Gh Student Murah ?
+[`Beli Disini`](https://wa.me/6285842647866?text=Bang+Mau+Beli+Akun+Gh+Student+:))
 
 ## Group Discussion
 - Join grup dibawah jika kamu ada pertanyaan, kamu bertanya-tanya?.
