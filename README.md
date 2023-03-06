@@ -26,10 +26,10 @@ $ pm2 start "npm start" && pm2 [token] && pm2 save && pm2 logs
 [`Deploy Now`](https://www.uffizzi.com/)
 
 ## Ingin Hosting Di Heroku Lagi?
-[`Beli Disini`](https://wa.me/6285842647866?text=Bang+Mau+Beli+Heroku+:))
+[`Beli Disini`](https://wa.me/6285842647866?text=Bang+Mau+Beli+Heroku)
 
 ## Ingin Beli Gh Student Murah ?
-[`Beli Disini`](https://wa.me/6285842647866?text=Bang+Mau+Beli+Akun+Gh+Student+:))
+[`Beli Disini`](https://wa.me/6285842647866?text=Bang+Mau+Beli+Akun+Gh+Student)
 
 ## Group Discussion
 - Join grup dibawah jika kamu ada pertanyaan, kamu bertanya-tanya?.
