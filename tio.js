@@ -3106,21 +3106,22 @@ case 'facebook': case 'fb': case 'fbdl':
  anu = await fetchJson(`https://api.botcahx.biz.id/api/dowloader/fbdown?url=${text}&apikey=Admin`)
  tio.sendMessage(m.chat, { video: { url: anu.result.Normal_video }, fileName: 'facebook.mp4', mimetype: 'video/mp4' }, { quoted: fkontak })
  break
- case 'instagram': case 'ig': case 'igdl': 
+case 'ig': 
+case 'igdl': 
+case 'instagramreel': 
+case 'igreel': 
+case 'instagramstory': 
+case 'igstory': 
+case 'igdlstroy':
  if (!text) throw 'Masukkan Query Link!'
- anu = await fetchJson(`https://api.botcahx.biz.id/api/dowloader/igdowloader?url=${text}&apikey=Admin`)
- tio.sendMessage(m.chat, { video: { url: anu.result.url }, fileName: 'ig.mp4', mimetype: 'video/mp4' }, { quoted: fkontak })
- break  
- case 'instagramreel': case 'igreel': case 'igdlreel': 
- if (!text) throw 'Masukkan Query Link!'
- anu = await fetchJson(`https://api.botcahx.biz.id/api/dowloader/igdowloader?url=${text}&apikey=Admin`)
- tio.sendMessage(m.chat, { video: { url: anu.result.url }, fileName: 'reel.mp4', mimetype: 'video/mp4' }, { quoted: fkontak })
- break  
- case 'instagramstory': case 'igstory': case 'igdlstroy': 
- if (!text) throw 'Masukkan Query Link!'
- anu = await fetchJson(`https://api.botcahx.biz.id/api/dowloader/igdowloader?url=${text}&apikey=Admin`)
- tio.sendMessage(m.chat, { image: { url: anu.result.url }, fileName: 'foto.jpg', mimetype: 'image/jpeg' }, { quoted: fkontak })
- break  
+anu = await fetchJson(`https://api.botcahx.biz.id/api/dowloader/igdowloader?url=${text}&apikey=Admin`)
+for (let i of anu.result.url){
+tio.sendMessage(m.chat,{video:{url:i.url}, caption:`nih ${command}`}, {quoted:fkontak})
+tio.sendMessage(m.chat,{image:{url:i.url}, caption:`nih ${command}`}, {quoted:fkontak})
+tio.sendMessage(m.chat,{video:{url:i.url}, caption:`nih ${command}`}, {quoted:fkontak})
+tio.sendMessage(m.chat,{image:{url:i.url}, caption:`nih ${command}`}, {quoted:fkontak})
+}
+break
  case 'twitter': case 'tw': case 'twitdl':     
  if (!text) throw 'Masukkan Query Link!'
  anu = await fetchJson(`https://api.botcahx.biz.id/api/dowloader/twitter?url=${text}&apikey=Admin`)
