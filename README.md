@@ -12,6 +12,7 @@ This is Script of WhatsApp multi device, working with [`@adiwajshing/baileys`](h
 ## NOTE
 - Script ini untuk semua orang, bukan untuk Dijual apalagi disalah gunakan. 
 - Jika apikey habis atau expired daftar [`Disini`](https://api.botcahx.biz.id)
+- Untuk ubah wm dan nomor owner ada di seetings namun ada juga wm yang di simpan di tio.js
 - Jika Butuh Apikey Lain Daftar [`Disini`](https://api.lannn.me)
 - Gunakan pm2 agar bot tetap online tanpa harus me-restart manual di terminal.
 ```bash
