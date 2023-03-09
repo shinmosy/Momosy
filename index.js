@@ -120,8 +120,48 @@ async function startTio() {
        tio.send5ButImg(pea[0].id, `「 *Group Settings Change* 」\n\nGroup Subject telah diganti menjadi *${pea[0].subject}*`, `Group Settings Change Message`, wm_tiodev, [])
      }
     })
+//Group Update
+tio.ev.on('group-participants.update', async (anu) => {
+console.log(anu)
+try {
+if (!anu.participants.includes(tio.user.jid)) {
+let metadata = await tio.groupMetadata(anu.id)
+let participants = anu.participants
+for (let num of participants) {
+try {
+ppuser = await tio.profilePictureUrl(num, 'image') 
+} catch {
+ppuser = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCB7iTtz1aO68sjGhK42vPQlte4MSsegaqUQ&usqp=CAU'
+}
+//Message Saat Ada User Yang Masuk Ke Grup
+//f (global.db.data.chats[m.chat].welcome) {
+        
+if (anu.action == 'add') {
+var but = [{buttonId: 'menu', buttonText: {displayText: 'Welcome'}, type: 1},]
+tekswell = `Halo @${num.split('@')[0]} 👋\nSelamat Datang Di Grup *${metadata.subject}*\n\n📛 Name : @${num.split('@')[0]}\n☎️ Nomer : ${num.split('@')[0]}\n🎎 Group : ${metadata.subject}\n👫 Member : ${metadata.participants.length}`
+tio.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: tekswell, footer: omlen, buttons: but })
+//Message Saat Ada User Yang Keluar Dari Grup
+} else if (anu.action == 'remove') {
+var but = [{buttonId: 'menu', buttonText: {displayText: 'Selamat Tinggal'}, type: 1},]
+teksbye = `Selamat Tinggal @${num.split("@")[0]} 👋\n\n📛 Name : @${num.split('@')[0]}\n☎️ Nomer : ${num.split('@')[0]}\n🎎 Group : ${metadata.subject}\n👫 Member : ${metadata.participants.length}`
+tio.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: teksbye, footer: omlen, buttons: but })
+//Message Saat Ada Yang Naik Jabatan
+} else if (anu.action == 'promote') {
+var but = [{buttonId: 'menu', buttonText: {displayText: 'Selamat'}, type: 1},]
+tekspromote = `Selamat @${num.split("@")[0]} Atas Kenaikan Jabatannya Di Grup ${metadata.subject}`
+tio.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: tekspromote, footer: omlen, buttons: but })
+//Message Saat Ada Yang Turun Jabatan
+} else if (anu.action == 'demote') {
+var but = [{buttonId: 'menu', buttonText: {displayText: 'Sabar'}, type: 1},]
+teksdemote = `Jabatan @${num.split("@")[0]} Telah Di Turunkan Di Grup ${metadata.subject}`
+tio.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: teksdemote, footer: omlen, buttons: but })
+}
+}
+} else {
+}
 
-    tio.ev.on('group-participants.update', async (anu) => {
+
+    /**tio.ev.on('group-participants.update', async (anu) => {
         console.log(anu)
         try {
             let metadata = await tio.groupMetadata(anu.id)
@@ -169,7 +209,7 @@ async function startTio() {
                 } else if (anu.action == 'demote') {
                     tio.sendMessage(anu.id, { caption: teks4, location: { jpegThumbnail: await reSize(ppuser, 100, 100)}, buttons: butsebar, footer: esce, mentions: [num] })
               }
-            }
+            }**/
         } catch (err) {
             console.log(err)
         }
