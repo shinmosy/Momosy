@@ -9,6 +9,7 @@ const hx = require('hxz-api')
 const axios = require('axios')
 const chalk = require('chalk')
 const yts = require('yt-search')
+const ytdl = require('ytdl-core')
 const xfar = require('xfarr-api')
 const google = require('google-it')
 const maker = require('mumaker')
@@ -244,6 +245,40 @@ const sendStickerFromUrl = async(to, url) => {
              })
              }
              
+      //warna
+      var randomColor = ['#ef1a11', '#89cff0', '#660000', '#87a96b', '#e9f6ff', '#ffe7f7', '#ca86b0', '#83a3ee', '#abcc88', '#80bd76', '#6a84bd', '#5d8d7f', '#530101', '#863434', '#013337', '#133700', '#2f3641', '#cc4291', '#7c4848', '#8a496b', '#722f37', '#0fc163', '#2f3641', '#e7a6cb', '#64c987', '#e6e6fa', '#ffa500'];
+			const apiColor = randomColor[Math.floor(Math.random() * randomColor.length)];
+     //fyt 
+     const downloadMp4 = async (Link) => {
+try {
+await ytdl.getInfo(Link)
+let mp4File = getRandom('.mp4')
+console.log('Download Video With ytdl-core')
+let nana = ytdl(Link)
+.pipe(fs.createWriteStream(mp4File))
+.on('finish', async () => {
+await tio.sendMessage(m.chat, { video: fs.readFileSync(mp4File), caption: mess.succes, gifPlayback: false }, { quoted: m })
+fs.unlinkSync(`./${mp4File}`)
+})
+} catch (err) {
+m.reply(`${err}`)
+}
+}
+
+const downloadMp3 = async (Link) => {
+try {
+await ytdl.getInfo(Link)
+let mp3File = getRandom('.mp3')
+console.log('Download Audio With ytdl-core')
+ytdl(Link, { filter: 'audioonly' })
+.pipe(fs.createWriteStream(mp3File))
+.on('finish', async () => {
+await tio.sendMessage(m.chat, { audio: fs.readFileSync(mp3File), mimetype: 'audio/mp4' }, { quoted: m })
+fs.unlinkSync(mp3File)
+})
+} catch (err) {
+m.reply(`${err}`)
+}
              //Fake
 	    const ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "status@broadcast"}, "message": {orderMessage: {itemCount: 2022,status: 200, thumbnail: await reSize(thumb, 100, 100), surface: 200, message: `${weem}`, orderTitle: 'Tio', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
 		const fdoc = {key : {participant : '0@s.whatsapp.net', ...(m.chat ? { remoteJid: `status@broadcast` } : {}) },message: {documentMessage: {title: `${weem}`,jpegThumbnail: await reSize(thumb, 100, 100)}}}
@@ -2444,7 +2479,7 @@ break
 		        m.reply(mess.errmor)}
         }
         break
-	    case 'play': case 'ytplay': {
+	    /**case 'play': case 'ytplay': {
                 if (!text) throw `Example : ${prefix + command} story wa anime`
                 let yts = require("yt-search")
                 let search = await yts(text)
@@ -2492,6 +2527,19 @@ anu = await ytMp4(`${q}`)
 titlenyaa = `TITLE BERHASIL DI DAPATKAN\n\nJudul : ${anu.title}\nUpload : ${anu.uploadDate}\nSize : ${anu.size}\nViews : ${anu.views}\nLike : ${anu.likes}\nDislike : ${anu.dislike}\nChannel : ${anu.channel}\nDeskripsi : ${anu.desc}\n\nMOHON TUNGGU SEDANG MENGIRIM MEDIA`
 tio.sendMessage(m.chat, { image: { url: anu.thumb }, caption: `${titlenyaa}`}, { quoted: ftoko })
 tio.sendMessage(m.chat, { video: { url: anu.result }, mimetype: 'video/mp4', fileName: `${anu.title}.mp4` }, { quoted: ftroli })
+break**/
+
+case 'ytmp3': case 'mp3':{
+if (!text) return m.reply('Masukan Link!')
+m.reply(mess.wait)
+downloadMp3(text)
+}
+break
+case'ytmp4': case 'mp4':{
+if (!text) return m.reply('Masukan Link!')
+m.reply(mess.wait)
+downloadMp4(text)
+}		
 break
 	 
 	    case 'getmusic': {
@@ -3246,6 +3294,84 @@ const truei = await m.reply(msg)
  await tio.sendMessage(m.chat, { react: { text: `✅`, key: m.key }})
             }
             break
+case'ktpmaker':
+			if (!q) return m.reply(`*Pengunaan :*\n${command} Nik| Provinsi| Kabupaten |Nama |TempatTanggalLahir |JenisKel |Alamat |RtRw |KelDesa |Kecamatan |Agama |Status |Pekerjaan |Region |Berlaku |golongan darah |LinkGambar\n\n${command} 6287877173955|Provinsi Jawa Barat|Kabupaten Bekasi|Arda Store|Bekasi |Laki-Laki|Bintara Jaya|02/05|Karang Indah|Bekasi Barat|Islam|Jomblo|Ngoding|Indonesia|2021-2080|abc|https://i.ibb.co/qrQX5DC/IMG-20220401-WA0084.jpg\n\n\n*「 INFO IMAGE 」*\nUntuk Gambar Profil KTP\nUpload Dari Web Berikut Ini\n\nhttps://i.waifu.pics\nhttps://c.top4top.io\n\nCONTOH HASIL NYA\nhttps://i.ibb.co/qrQX5DC/IMG-20220401-WA0084.jpg\nhttps://k.top4top.io/p_2208264hn0.jpg`)
+			get_args = args.join(" ").split("|")
+			nik = get_args[0]
+			prov = get_args[1]
+			kabu = get_args[2]
+			name = get_args[3]
+			ttl = get_args[4]
+			jk = get_args[5]
+			jl = get_args[6]
+			rtrw = get_args[7]
+			lurah = get_args[8]
+			camat = get_args[9]
+			agama = get_args[10]
+			nikah = get_args[11]
+			kerja = get_args[12]
+			warga = get_args[13]
+			until = get_args[14]
+			gd = get_args[15]
+			img = get_args[16]
+			bikin = (`https://oni-chan.my.id/api/Fmake/ktpmaker?nik=${nik}&nama=${name}&ttl=${ttl}&jk=${jk}&gd=${gd}&almt=${jl}&rtw=${rtrw}&kel=${lurah}&kc=${camat}&agm=${agama}&st=${nikah}&krj=${kerja}&ngr=${warga}&blk=${until}&prv=${prov}&kab=${kabu}&picturl=${img}`)
+			console.log(bikin)
+			ardaktp = await getBuffer(bikin)
+						await sleep(8000)
+			await tio.sendMessage(m.chat, {
+				image: ardaktp,
+				caption: `*© By Ferdiz-afk*`
+			}, {
+				quoted: ftoko
+			})
+	
+			break
+                     case'qc': case 'quotely':
+                     if (!text) return m.reply(`Kirim perintah *${prefix}qc* teks`)
+                     let jsonnya = {
+                     type: "quoted",
+                     format: "webp",
+                     backgroundColor: apiColor,
+                     width: 768,
+                     height: 768,
+                     scale: 2,
+                     messages: [
+                   {
+                   entities: [],
+                   avatar: true,
+                   from: {
+                     id: 1,
+                     name: pushname,
+                    photo: {
+                      url: await tio.profilePictureUrl(m.sender, "image").catch(() => 'https://telegra.ph/file/999b290ecb3e50107a9da.jpg'),
+                     }
+                     },
+                     text: text,
+                     replyMessage: {},
+                     },
+                   ],
+                 }
+                 const post = await axios.post("https://bot.lyo.su/quote/generate",
+                  jsonnya,{
+                    headers: { "Content-Type": "application/json"},
+                  })
+                  let buff = await Buffer.from(post.data.result.image, "base64")
+                  if (buff == undefined) return reply('error')
+                  tio.sendImageAsSticker(m.chat, buff, mek, { packname, author })
+						
+                  tio.sendMessage(m.chat, {
+				image: buff,
+				caption: `*© TioXd*`
+			}, {
+				quoted: floc2
+			})
+	
+			break
+case'dinokuning':
+var stiks = `http://api.lannn.me/api/sticker/dinokuning?apikey=Lann`
+  tio.sendImageAsSticker(m.chat, stiks, m, { packname: global.packname, author: global.author })
+  break
+
         case 'img': case 'pinterest': case 'image': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
@@ -3535,7 +3661,7 @@ wbzone = `╭──❍「 *Web Zone Menu* 」
 │ *»* ${prefix}mukelu
 │ *»* ${prefix}sanime
 │ *»* ${prefix}myip
-│
+│ *»* ${prefix}dinokuning
 ╰────❍`
 let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: '️Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: 'List Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: 'Donasi' }, type: 1 }]
             await tio.sendButtonText(m.chat, buttons, wbzone, esce, m, {quoted: fkontak})
@@ -3743,6 +3869,8 @@ cnvert = `╭──❍「 *Convert Menu* 」
 │ *»* ${prefix}dbinary
 │ *»* ${prefix}styletext
 │ *»* ${prefix}smeme
+│ *»* ${prefix}ktpmaker
+│ *»* ${prefix}qc
 ╰────❍`
 let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: '️Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: 'List Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: 'Donasi' }, type: 1 }]
             await tio.sendButtonText(m.chat, buttons, cnvert, esce, m, {quoted: fkontak})
@@ -3890,6 +4018,7 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 │ *»* ${prefix}mukelu
 │ *»* ${prefix}myip
 │ *»* ${prefix}sanime
+│ *»* ${prefix}dinokuning 
 ╰────❍
 ╭──❍「 *Downloader Menu* 」
 │ *»* ${prefix}tiktok [url]
@@ -4050,6 +4179,8 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 │ *»* ${prefix}dbinary
 │ *»* ${prefix}styletext
 │ *»* ${prefix}smeme
+│ *»* ${prefix}ktpmaker
+│ *»* ${prefix}qc
 ╰────❍
 ╭──❍「 *Main Menu* 」
 │ *»* ${prefix}ping
