@@ -249,7 +249,7 @@ const sendStickerFromUrl = async(to, url) => {
       var randomColor = ['#ef1a11', '#89cff0', '#660000', '#87a96b', '#e9f6ff', '#ffe7f7', '#ca86b0', '#83a3ee', '#abcc88', '#80bd76', '#6a84bd', '#5d8d7f', '#530101', '#863434', '#013337', '#133700', '#2f3641', '#cc4291', '#7c4848', '#8a496b', '#722f37', '#0fc163', '#2f3641', '#e7a6cb', '#64c987', '#e6e6fa', '#ffa500'];
 			const apiColor = randomColor[Math.floor(Math.random() * randomColor.length)];
      //fyt 
-     const downloadMp4 = async (Link) => {
+const downloadMp4 = async (Link) => {
 try {
 await ytdl.getInfo(Link)
 let mp4File = getRandom('.mp4')
@@ -278,6 +278,7 @@ fs.unlinkSync(mp3File)
 })
 } catch (err) {
 m.reply(`${err}`)
+}
 }
              //Fake
 	    const ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "status@broadcast"}, "message": {orderMessage: {itemCount: 2022,status: 200, thumbnail: await reSize(thumb, 100, 100), surface: 200, message: `${weem}`, orderTitle: 'Tio', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
