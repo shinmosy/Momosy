@@ -3319,9 +3319,9 @@ case'ktpmaker':
 			console.log(bikin)
 			ardaktp = await getBuffer(bikin)
 						await sleep(8000)
-			await tio.sendMessage(m.chat, {
+			tio.sendMessage(m.chat, {
 				image: ardaktp,
-				caption: `*© By Ferdiz-afk*`
+				caption: `*Ktp Maker*`
 			}, {
 				quoted: ftoko
 			})
@@ -3360,12 +3360,12 @@ case'ktpmaker':
                   if (buff == undefined) return reply('error')
                   tio.sendImageAsSticker(m.chat, buff, mek, { packname, author })
 						
-                  tio.sendMessage(m.chat, {
+                  /**tio.sendMessage(m.chat, {
 				image: buff,
 				caption: `*© TioXd*`
 			}, {
 				quoted: floc2
-			})
+			})**/
 	
 			break
 case'dinokuning':
