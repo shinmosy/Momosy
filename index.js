@@ -1,9 +1,5 @@
-//Changed to multi by RXYZAL 
-// https://github.com/rizal333
-
 require('./settings')
 const { default: tioConnect, useSingleFileAuthState,useMultiFileAuthState, DisconnectReason, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
-//const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
 const pino = require('pino')
 const { Boom } = require('@hapi/boom')
 const fs = require('fs')
@@ -101,8 +97,8 @@ const { state, saveCreds } = await useMultiFileAuthState('src')
     tio.ws.on('CB:call', async (json) => {
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
-    let pa7rick = await tio.sendContact(callerId, global.owner)
-    tio.sendMessage(callerId, { text: `*Sistem otomatis block!*\n*Jangan menelpon bot*!\n*Silahkan Hubungi Owner Untuk Dibuka !*`}, { quoted : pa7rick })
+    let messa = await tio.sendContact(callerId, global.owner)
+    tio.sendMessage(callerId, { text: `*Sistem otomatis block!*\n*Jangan menelpon bot*!\n*Silahkan Hubungi Owner Untuk Dibuka !*`}, { quoted : messa })
     await sleep(8000)
     await tio.updateBlockStatus(callerId, "block")
     }
@@ -185,57 +181,6 @@ tio.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [
 }
 } else {
 }
-
-
-    /**tio.ev.on('group-participants.update', async (anu) => {
-        console.log(anu)
-        try {
-            let metadata = await tio.groupMetadata(anu.id)
-            let participants = anu.participants
-            for (let num of participants) {
-                // Get Profile Picture User
-                try {
-                    ppuser = await tio.profilePictureUrl(num, 'image')
-                } catch {
-                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
-                
-            
-         const reSize = async(buffer, ukur1, ukur2) => {
-             return new Promise(async(resolve, reject) => {
-             let jimp = require('jimp')
-             var baper = await jimp.read(buffer);
-             var ab = await baper.resize(ukur1, ukur2).getBufferAsync(jimp.MIME_JPEG)
-             resolve(ab)
-             })
-             }
-
-            
-                try {
-                    ppgroup = await tio.profilePictureUrl(anu.id, 'image')
-                } catch {
-                    ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
-                
-                let butwel = [{ buttonId: 'menu', buttonText: { displayText: 'Welcome' }, type: 1 }]
-                let butleav = [{ buttonId: 'menu', buttonText: { displayText: 'Selamat Tinggal' }, type: 1 }]
-                let butselamat = [{ buttonId: 'menu', buttonText: { displayText: 'Selamat!' }, type: 1 }]
-                let butsebar = [{ buttonId: 'menu', buttonText: { displayText: 'Sabar' }, type: 1 }]
-                let esce = ('© TioXd')
-                let teks1 = `*Halo @${num.split('@')[0]}*\n*Selamat Datang Di Grup*\n*${metadata.subject}*\n*Jangan Lupa Intro.*\n_~Admin_`
-                let teks2 = `*Selamat Tinggal @${num.split('@')[0]}*\n*Semoga Tenang Di Alam Sana*\n_~Admin_`
-                let teks3 = `*@${num.split('@')[0]} Promote From*\n*${metadata.subject}*\n*Selamat Anda Menjadi Admin*\n_~Jangan disalahgunakan!_`
-                let teks4 = `*@${num.split('@')[0]} Demote From*\n*${metadata.subject}*\n_Pangkat kamu telah di turunkan!_`
-                if (anu.action == 'add') {
-                    tio.sendMessage(anu.id, { caption: teks1, location: { jpegThumbnail: await reSize(ppuser, 100, 100)}, buttons: butwel, footer: esce, mentions: [num] })
-                } else if (anu.action == 'remove') {
-                    tio.sendMessage(anu.id, { caption: teks2, location: { jpegThumbnail: await reSize(ppuser, 100, 100)}, buttons: butleav, footer: esce, mentions: [num] })
-                } else if (anu.action == 'promote') {
-                    tio.sendMessage(anu.id, { caption: teks3, location: { jpegThumbnail: await reSize(ppuser, 100, 100)}, buttons: butselamat, footer: esce, mentions: [num] })
-                } else if (anu.action == 'demote') {
-                    tio.sendMessage(anu.id, { caption: teks4, location: { jpegThumbnail: await reSize(ppuser, 100, 100)}, buttons: butsebar, footer: esce, mentions: [num] })
-              }
-            }**/
         } catch (err) {
             console.log(err)
         }
