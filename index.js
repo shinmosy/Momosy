@@ -64,7 +64,7 @@ if (global.db) setInterval(async () => {
   }, 30 * 1000)
 
 async function startTio() {
-const { state, saveCreds } = await useMultiFileAuthState('src')
+const { state, saveCreds } = await useMultiFileAuthState('./src/sesi')
     const tio = tioConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
