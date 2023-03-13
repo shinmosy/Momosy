@@ -3,6 +3,7 @@
 
 require('./settings')
 const { default: tioConnect, useSingleFileAuthState,useMultiFileAuthState, DisconnectReason, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
+//const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
 const pino = require('pino')
 const { Boom } = require('@hapi/boom')
 const fs = require('fs')
@@ -64,15 +65,37 @@ if (global.db) setInterval(async () => {
   }, 30 * 1000)
 
 async function startTio() {
-const { state, saveCreds } = await useMultiFileAuthState('./src/sesi')
+const { state, saveCreds } = await useMultiFileAuthState('src')
     const tio = tioConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
+        patchMessageBeforeSending: (message) => {
+                const requiresPatch = !!(
+                  message.buttonsMessage
+              	  || message.templateMessage
+              		|| message.listMessage
+                );
+                if (requiresPatch) {
+                    message = {
+                        viewOnceMessage: {
+                            message: {
+                                messageContextInfo: {
+                                    deviceListMetadataVersion: 2,
+                                    deviceListMetadata: {},
+                                },
+                                ...message,
+                            },
+                        },
+                    };
+                }
+                return message;
+    },  
         browser: ['BOTCAHX','Safari',''],
         auth: state,
 	generateHighQualityLinkPreview: true
     })
     store.bind(tio.ev)
+    
     
     // anticall auto block
     tio.ws.on('CB:call', async (json) => {
