@@ -112,5 +112,6 @@ $ npm start
 * [`Naze Dev`](https://github.com/nazedev)
 * [`AzRyCb`](https://github.com/AzRyCb)
 * [`ERLANRAHMAT`](https://github.com/ERLANRAHMAT)
+* [`Rizal`](https://github.com/rizal333)
 
 ```Thanks to all who have participated in the development of this script```
