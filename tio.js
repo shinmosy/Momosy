@@ -2480,7 +2480,7 @@ break
 		        m.reply(mess.errmor)}
         }
         break
-	    /**case 'play': case 'ytplay': {
+	    case 'play': case 'ytplay': {
                 if (!text) throw `Example : ${prefix + command} story wa anime`
                 let yts = require("yt-search")
                 let search = await yts(text)
@@ -2509,7 +2509,7 @@ break
                 tio.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'ytmp3':
+/**case 'ytmp3':
 if (!text) throw `Example : ${prefix + command} Link Nya`
 let isLinks2 = args[0].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
 if (!isLinks2) return m.reply(`Linknya Jelek`)
