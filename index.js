@@ -1,8 +1,8 @@
 //Changed to multi by RXYZAL 
+// https://github.com/rizal333
 
 require('./settings')
 const { default: tioConnect, useSingleFileAuthState,useMultiFileAuthState, DisconnectReason, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
-//const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
 const pino = require('pino')
 const { Boom } = require('@hapi/boom')
 const fs = require('fs')
