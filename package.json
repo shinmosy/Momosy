@@ -18,10 +18,10 @@
     "bot-md",
     "multi-device"
   ],
-  "author": "TioDev",
+  "author": "TioXd",
   "license": "MIT",
   "dependencies": {
-    "@adiwajshing/baileys": "github:hostinger-bot/baileys",
+    "@adiwajshing/baileys": "npm:@ferdiz-afk/baileys",
     "@adiwajshing/keyed-db": "latest",
     "@bochilteam/scraper": "latest",
     "awesome-phonenumber": "latest",
