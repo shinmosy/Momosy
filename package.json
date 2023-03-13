@@ -21,7 +21,7 @@
   "author": "TioXd",
   "license": "MIT",
   "dependencies": {
-   "@adiwajshing/baileys": "github:adiwajsingh/baileys",
+   "@adiwajshing/baileys": "github:amiruldev20/baileys",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^3.0.0",
     "awesome-phonenumber": "^2.64.0",
