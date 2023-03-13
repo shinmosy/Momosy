@@ -65,6 +65,11 @@ const { state, saveCreds } = await useMultiFileAuthState('./src/sesi')
     const tio = tioConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
+        markOnlineOnConnect: true,
+        connectTimeoutMs: 60_000,
+        defaultQueryTimeoutMs: 0, 
+        syncFullHistory: false,
+        keepAliveIntervalMs: 10000,
         patchMessageBeforeSending: (message) => {
                 const requiresPatch = !!(
                   message.buttonsMessage
@@ -286,7 +291,7 @@ lolcatjs.fromString(`Connecting...`)
 if (update.connection == "open" || update.receivedPendingNotifications == "true") {
 	lolcatjs.fromString(`⏳ Mengkoneksikan Ke >>•> WhatsApp Web`)
 	lolcatjs.fromString(`✅ Berhasil Tersambung Ke ` + JSON.stringify(tio.user, null, 2))
-	global.creator = ['6285692006004']
+	global.creator = ['0']
 	let imgown = await getBuffer('https://telegra.ph/file/4ea5b7309bb948e62bc3a.jpg')
 	let imgcrea = await getBuffer('https://telegra.ph/file/b8aa5d61ad7bc8eb90e43.jpg')
 	let butcrea = [{ buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `ping`, buttonText: { displayText: 'Status Bot' }, type: 1 }]
