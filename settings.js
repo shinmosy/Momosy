@@ -7,7 +7,6 @@ global.ownernomer = "6281395861695"
 global.premium = ['6281395861695']
 global.packname = 'Sticker By'
 global.author = 'BOTCAHX'
-global.sessionName = 'session'
 global.jumlha = '999'
 global.jumhal = '100000000000000'
 global.jumlah = '1000000000'
