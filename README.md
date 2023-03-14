@@ -1,7 +1,9 @@
 # CATATAN ( NOTE )
 - Script ini hanyalah hasil recode dari sc asli Hisoka-Morrow
 saya hanya memperbaiki sebagian fitur yg error.
-- Hosting gratis menggunakan panel register [`Disini`](https://billing.botcahx.biz.id)
+
+- Telah menggunakan Sessions Multi auth state.
+
 <p align="center">
 	<img src="https://telegra.ph/file/2f2dff89c65c9e5a1dddc.png" width="35%" style="margin-left: auto;margin-right: auto;display: block;">
 </p>
