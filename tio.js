@@ -2466,7 +2466,7 @@ break
                     {buttonId: `gimage ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}
                 ]
                 let buttonMessage = {
-                    image: { url: webin + images.url },
+                    image: { url: images.url },
                     caption: `*-------「 GIMAGE SEARCH 」-------*
  *Query* : ${text}
  *Media Url* : ${images.url}`,
