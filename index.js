@@ -127,7 +127,8 @@ const { state, saveCreds } = await useMultiFileAuthState('./src/sesi')
     
     // Group Update tag mem & welcome, leave 
     tio.ev.on('groups.update', async tioxd => {
-       console.log(tioxd)
+       console.log(`${chalk.bgRed("Events Update")} 
+       `.trim(), tioxd)
        try {
        ppgc = await tio.profilePictureUrl(tioxd[0].id, 'image')
        } catch {
