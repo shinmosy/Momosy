@@ -125,7 +125,7 @@ const { state, saveCreds } = await useMultiFileAuthState('./src/sesi')
         }
     })
     
-    // Group Update
+    // Group Update tag mem & welcome, leave 
     tio.ev.on('groups.update', async tioxd => {
        console.log(tioxd)
        try {
@@ -144,15 +144,14 @@ const { state, saveCreds } = await useMultiFileAuthState('./src/sesi')
        tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\nInfo group telah dibuka, Sekarang peserta dapat mengedit info group !`, `Group Settings Change Message`, wm_tiodev, [])  
        } else if (!tioxd[0].desc == '') {
        tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\nGroup desk telah diganti menjadi *${tioxd[0].desc}*`, `Group Settings Change Message`, wm_tiodev, [])
-        } else if (!tioxd[0].icon_update == '') {
+       } else if (!tioxd[0].icon_update == '') {
        tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\nGroup icon telah diganti oleh admin.`, `Group Settings Change Message`, wm_tiodev, [])    
        } else if (!tioxd[0].inviteCode == '') {
        tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\Group invite link telah di ubah*\n\n*NEW invite link Code* :${tioxd[0].inviteCode == 'undefined' ? '' : "https://chat.whatsapp.com/"+tioxd[0].inviteCode}`, `Group Settings Change Message`, wm_tiodev, [])
-        } else {
+       } else {
        tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\nGroup Subject telah diganti menjadi *${tioxd[0].subject}*`, `Group Settings Change Message`, wm_tiodev, [])
   }
     })
-//Group Update
 tio.ev.on('group-participants.update', async (anu) => {
 console.log(anu)
 try {
