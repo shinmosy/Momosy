@@ -126,26 +126,31 @@ const { state, saveCreds } = await useMultiFileAuthState('./src/sesi')
     })
     
     // Group Update
-    tio.ev.on('groups.update', async pea => {
-       //console.log(pea)
-    // Get Profile Picture Group
+    tio.ev.on('groups.update', async tioxd => {
+       console.log(tioxd)
        try {
-       ppgc = await tio.profilePictureUrl(pea[0].id, 'image')
+       ppgc = await tio.profilePictureUrl(tioxd[0].id, 'image')
        } catch {
-       ppgc = 'https://telegra.ph/file/91eca40a7c48c87716d2b.jpg'
+       ppgc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCB7iTtz1aO68sjGhK42vPQlte4MSsegaqUQ&usqp=CAU'
        }
        let wm_tiodev = { url : ppgc }
-       if (pea[0].announce == true) {
-       tio.send5ButImg(pea[0].id, `「 *Group Settings Change* 」\n\nGroup telah ditutup oleh admin, Sekarang hanya admin yang dapat mengirim pesan !`, `GROUP MESSAGE`, wm_tiodev, [])
-       } else if(pea[0].announce == false) {
-       tio.send5ButImg(pea[0].id, `「 *Group Settings Change* 」\n\nGroup telah dibuka oleh admin, Sekarang peserta dapat mengirim pesan !`, `Group Settings Change Message`, wm_tiodev, [])
-       } else if (pea[0].restrict == true) {
-       tio.send5ButImg(pea[0].id, `「 *Group Settings Change* 」\n\nInfo group telah dibatasi, Sekarang hanya admin yang dapat mengedit info group !`, `Group Settings Change Message`, wm_tiodev, [])
-       } else if (pea[0].restrict == false) {
-       tio.send5ButImg(pea[0].id, `「 *Group Settings Change* 」\n\nInfo group telah dibuka, Sekarang peserta dapat mengedit info group !`, `Group Settings Change Message`, wm_tiodev, [])
-       } else {
-       tio.send5ButImg(pea[0].id, `「 *Group Settings Change* 」\n\nGroup Subject telah diganti menjadi *${pea[0].subject}*`, `Group Settings Change Message`, wm_tiodev, [])
-     }
+       if (tioxd[0].announce == true) {
+       tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\nGroup telah ditutup oleh admin, Sekarang hanya admin yang dapat mengirim pesan !`, `GROUP MESSAGE`, wm_tiodev, [])
+       } else if(tioxd[0].announce == false) {
+       tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\nGroup telah dibuka oleh admin, Sekarang peserta dapat mengirim pesan !`, `Group Settings Change Message`, wm_tiodev, [])
+       } else if (tioxd[0].restrict == true) {
+       tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\nInfo group telah dibatasi, Sekarang hanya admin yang dapat mengedit info group !`, `Group Settings Change Message`, wm_tiodev, [])
+       } else if (tioxd[0].restrict == false) {
+       tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\nInfo group telah dibuka, Sekarang peserta dapat mengedit info group !`, `Group Settings Change Message`, wm_tiodev, [])  
+       } else if (!tioxd[0].desc == '') {
+       tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\nGroup desk telah diganti menjadi *${tioxd[0].desc}*`, `Group Settings Change Message`, wm_tiodev, [])
+        } else if (!tioxd[0].icon_update == '') {
+       tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\nGroup icon telah diganti oleh admin.`, `Group Settings Change Message`, wm_tiodev, [])    
+       } else if (!tioxd[0].inviteCode == '') {
+       tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\Group invite link telah di ubah*\n\n*NEW invite link Code* :${tioxd[0].inviteCode == 'undefined' ? '' : "https://chat.whatsapp.com/"+tioxd[0].inviteCode}`, `Group Settings Change Message`, wm_tiodev, [])
+        } else {
+       tio.send5ButImg(tioxd[0].id, `「 *Group Settings Change* 」\n\nGroup Subject telah diganti menjadi *${tioxd[0].subject}*`, `Group Settings Change Message`, wm_tiodev, [])
+  }
     })
 //Group Update
 tio.ev.on('group-participants.update', async (anu) => {
