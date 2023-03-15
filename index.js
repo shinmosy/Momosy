@@ -154,7 +154,9 @@ const { state, saveCreds } = await useMultiFileAuthState('./src/sesi')
   }
     })
 tio.ev.on('group-participants.update', async (anu) => {
-console.log(anu)
+console.log(`
+${chalk.bgRed("Participant Update")} 
+`.trim(), anu)
 try {
 if (!anu.participants.includes(tio.user.jid)) {
 let metadata = await tio.groupMetadata(anu.id)
