@@ -3372,6 +3372,22 @@ case'dinokuning':
 var stiks = `http://api.lannn.me/api/sticker/dinokuning?apikey=Lann`
   tio.sendImageAsSticker(m.chat, stiks, m, { packname: global.packname, author: global.author })
   break
+case 'translateid': case 'trid': {
+if (!q) return m.reply(`Ex : ${prefix+command} Teks Yang Ingin Di Translate\n\nContoh :\n${prefix+command} halo nama saya botcahx`)
+var jsons = await fetchJson(`https://api.botcahx.biz.id/api/info/translate?text=${q}&lang=id&apikey=Admin`)
+var hasil = jsons.result
+m.reply(hasil)
+}
+break
+
+case 'translateen': case 'tren': {
+if (!q) return m.reply(`Ex : ${prefix+command} Teks Yang Ingin Di Translate\n\nContoh :\n${prefix+command} Hello my name is botcahx`)
+var jsons = await fetchJson(`https://api.botcahx.biz.id/api/info/translate?text=${q}&lang=en&apikey=Admin`)
+var hasil = jsons.result
+m.reply(hasil)
+}
+break						
+
 
         case 'img': case 'pinterest': case 'image': {
                 if (!text) throw 'Masukkan Query Link!'
@@ -3872,6 +3888,8 @@ cnvert = `╭──❍「 *Convert Menu* 」
 │ *»* ${prefix}smeme
 │ *»* ${prefix}ktpmaker
 │ *»* ${prefix}qc
+│ *»* ${prefix}translateid
+│ *»* ${prefix}translateen
 ╰────❍`
 let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: '️Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: 'List Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: 'Donasi' }, type: 1 }]
             await tio.sendButtonText(m.chat, buttons, cnvert, esce, m, {quoted: fkontak})
@@ -4182,6 +4200,8 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 │ *»* ${prefix}smeme
 │ *»* ${prefix}ktpmaker
 │ *»* ${prefix}qc
+│ *»* ${prefix}translateid
+│ *»* ${prefix}translateen
 ╰────❍
 ╭──❍「 *Main Menu* 」
 │ *»* ${prefix}ping
