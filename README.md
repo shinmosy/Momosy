@@ -35,7 +35,7 @@ $ pm2 start "npm start" && pm2 [token] && pm2 save && pm2 logs
 
 ## Group Discussion
 - Join grup dibawah jika kamu ada pertanyaan, kamu bertanya-tanya?.
-[`Group Link`](https://chat.whatsapp.com/D6BZVRSymWaFU28t2lxaO0)
+[`Group Link`](https://chat.whatsapp.com/Ln2vHjRrRayAbzalRMB56r)
 ## My Project
 * Script Plugins [`Go here`](https://github.com/BOTCAHX/RTXZY-MD) (`Multiple Sessions Bot`)
 * Original Script [`DikaArdnt/Hisoka-Morrow`](https://github.com/DikaArdnt/Hisoka-Morrow) (Sc Original)
