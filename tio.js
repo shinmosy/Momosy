@@ -3382,8 +3382,28 @@ var jsons = await fetchJson(`https://api.botcahx.biz.id/api/info/translate?text=
 var hasil = jsons.result
 m.reply(hasil)
 }
-break						
-
+break	
+  case 'get': case 'fetch': 
+  if (!text) throw '*Sertakan URL!*'
+  if (!/^https?:\/\//.test(text)) throw 'Masukan *URL* dengan http:// atau https://'
+  await m.reply('_Loading_...')	 
+  let url = new URL(text)  
+  let res = await fetch(url)
+  let bufg = await getBuffer(text)
+  if (res.headers.get('content-length') > 100 * 1024 * 1024 * 1024) {
+    delete res
+    throw `Content-Length: ${res.headers.get('content-length')}`
+  }
+  if (!/text|json/.test(res.headers.get('content-type')))return tio.sendMessage(m.chat, { image: bufg }, { quoted: m })
+let txt = await res.buffer()
+  try {
+    txt = util.format(JSON.parse(txt+''))
+  } catch (e) {
+    txt = txt + ''
+  } finally {
+    m.reply(txt.slice(0, 65536) + '')
+  }
+	 break					
 
         case 'img': case 'pinterest': case 'image': {
                 if (!text) throw 'Masukkan Query Link!'
@@ -3722,6 +3742,7 @@ sarch = `╭──❍「 *Search Menu* 」
 │ *»* ${prefix}ytsearch [query]
 │ *»* ${prefix}ringtone [query]
 │ *»* ${prefix}totalhit
+│ *»* ${prefix}get [url]
 ╰────❍`
 let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: 'List Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: 'Donasi' }, type: 1 }]
             await tio.sendButtonText(m.chat, buttons, sarch, esce, m, {quoted: fkontak})
@@ -4072,6 +4093,7 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 │ *»* ${prefix}ringtone [query]
 │ *»* ${prefix}totalhit
 │ *»* ${prefix}totalfitur [query]
+│ *»* ${prefix}get [url]
 ╰────❍
 ╭──❍「 *Random Menu* 」
 │ *»* ${prefix}gbtku
