@@ -3151,7 +3151,7 @@ case 'facebook': case 'fb': case 'fbdl':
  anu = await fetchJson(`https://api.botcahx.biz.id/api/dowloader/fbdown?url=${text}&apikey=Admin`)
  tio.sendMessage(m.chat, { video: { url: anu.result.Normal_video }, fileName: 'facebook.mp4', mimetype: 'video/mp4' }, { quoted: fkontak })
  break
-case 'ig': 
+/*case 'ig': 
 case 'igdl': 
 case 'instagramreel': 
 case 'igreel': 
@@ -3165,6 +3165,17 @@ tio.sendMessage(m.chat,{video:{url:i.url}, caption:`nih ${command}`}, {quoted:fk
 tio.sendMessage(m.chat,{image:{url:i.url}, caption:`nih ${command}`}, {quoted:fkontak})
 tio.sendMessage(m.chat,{video:{url:i.url}, caption:`nih ${command}`}, {quoted:fkontak})
 tio.sendMessage(m.chat,{image:{url:i.url}, caption:`nih ${command}`}, {quoted:fkontak})
+}
+break*/
+case 'ig': case 'instagram':
+case 'igdl': 
+if (!text) throw 'Masukkan Query Link!'						
+try{
+ anu = await fetchJson(`https://saipulanuar.ga/api/downloader/instagram?url=${text}`)
+ tio.sendMessage(m.chat, { video: { url: anu.result.url }, fileName: 'botcahx.mp4', mimetype: 'video/mp4' }, { quoted: m })
+tio.sendMessage(m.chat,{ image: { url : anu.result.url }, caption:`Selesai...`}, {quoted: m })
+} catch (e) {
+m.reply(mess.error)
 }
 break
  case 'twitter': case 'tw': case 'twitdl':     
