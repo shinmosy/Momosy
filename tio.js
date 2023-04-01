@@ -3394,11 +3394,12 @@ var hasil = jsons.result
 m.reply(hasil)
 }
 break	
-  case 'get': case 'fetch': 
-  if (!text) throw '*Sertakan URL!*'
-  if (!/^https?:\/\//.test(text)) throw 'Masukan *URL* dengan http:// atau https://'
-  await m.reply('_Loading_...')	 
-  let url = new URL(text)  
+ 	case 'get': case 'fetch': 
+ if (!text) throw '*Sertakan URL!*'
+ if (!/^https?:\/\//.test(text)) throw 'Masukan *URL* dengan http:// atau https://'
+	await m.reply('_Loading_...')	 
+	
+	let url = new URL(text)  
   let res = await fetch(url)
   let bufg = await getBuffer(text)
   if (res.headers.get('content-length') > 100 * 1024 * 1024 * 1024) {
@@ -3414,7 +3415,7 @@ let txt = await res.buffer()
   } finally {
     m.reply(txt.slice(0, 65536) + '')
   }
-	 break					
+	 break			
 
         case 'img': case 'pinterest': case 'image': {
                 if (!text) throw 'Masukkan Query Link!'
