@@ -3417,6 +3417,28 @@ let txt = await res.buffer()
     m.reply(txt.slice(0, 65536) + '')
   }
 	 break			
+case 'tr': case 'translate': {
+const { translate } = require('@vitalets/google-translate-api')
+let defaultLang = 'id'
+let tld = 'cn'
+let err = `
+Contoh:
+${prefix + command} <lang> [text]
+${prefix + command} id your messages
+Daftar bahasa yang didukung: https://cloud.google.com/translate/docs/languages
+`.trim()
+
+let lang = args[0]
+let text = args.slice(1).join(' ')
+if ((args[0] || '').length !== 2) {
+lang = defaultLang
+text = args.join(' ')
+}
+if (!text && m.quoted && m.quoted.text) text = m.quoted.text
+let result = await translate(text, { to: lang, autoCorrect: true }).catch(_ => null) 
+       m.reply(result.text)
+}
+break
 
         case 'img': case 'pinterest': case 'image': {
                 if (!text) throw 'Masukkan Query Link!'
@@ -3920,6 +3942,7 @@ cnvert = `╭──❍「 *Convert Menu* 」
 │ *»* ${prefix}qc
 │ *»* ${prefix}translateid
 │ *»* ${prefix}translateen
+│ *»* ${prefix}tr [text/reply] 
 ╰────❍`
 let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: '️Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: 'List Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: 'Donasi' }, type: 1 }]
             await tio.sendButtonText(m.chat, buttons, cnvert, esce, m, {quoted: fkontak})
@@ -4233,6 +4256,7 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 │ *»* ${prefix}qc
 │ *»* ${prefix}translateid
 │ *»* ${prefix}translateen
+│ *»* ${prefix}tr [text/reply] 
 ╰────❍
 ╭──❍「 *Main Menu* 」
 │ *»* ${prefix}ping
