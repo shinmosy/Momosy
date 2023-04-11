@@ -2797,64 +2797,8 @@ case 'lava': case 'rock': case 'bloodglas': case 'hallowen': case 'darkgold': ca
              tio.sendMessage(m.chat, { image: { url: anu }, caption: `Made by ${global.botname},For my Darling ` }, { quoted: m })
              }
              break
-            
-case 'patrick': case 'patricksticker': case 'petrik': {
-var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/patrik')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await tio.sendImageAsSticker(m.chat, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
-break
-case 'dogesticker': case 'dogestick': case 'doge': case 'domge': {
-var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/anjing')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await tio.sendImageAsSticker(m.chat, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
-break
-case 'lovesticker': case 'lovestick' : case 'slove': {
-var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/bucin')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await tio.sendImageAsSticker(m.chat, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
-break
-case 'gura': case 'gurastick': {
-var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/gura')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await tio.sendImageAsSticker(m.chat, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
-break
-case 'paimon': {
-var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/Paimon')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await tio.sendImageAsSticker(m.chat, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
-break
-case 'sanime': case 'animestick': {
-var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/animestick')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await tio.sendImageAsSticker(m.chat, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
-break
-case 'mukelu': case 'lu': {
-var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/mukelu')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await tio.sendImageAsSticker(m.chat, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
-break
-            case 'quotesanime': case 'quoteanime': {
+
+               case 'quotesanime': case 'quoteanime': {
 		let { quotesAnime } = require('./lib/scraper')
                 let anu = await quotesAnime()
                 result = anu[Math.floor(Math.random() * anu.length)]
@@ -3721,13 +3665,6 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 wbzone = `╭──❍「 *Web Zone Menu* 」
 │ *»* ${prefix}playstore
 │ *»* ${prefix}webtoon
-│ *»* ${prefix}dogesticker
-│ *»* ${prefix}patricksticker
-│ *»* ${prefix}lovesticker
-│ *»* ${prefix}gura
-│ *»* ${prefix}paimon
-│ *»* ${prefix}mukelu
-│ *»* ${prefix}sanime
 │ *»* ${prefix}myip
 │ *»* ${prefix}dinokuning
 ╰────❍`
@@ -4082,14 +4019,7 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 ╭──❍「 *Webzone Menu* 」
 │ *»* ${prefix}playstore
 │ *»* ${prefix}webtoon
-│ *»* ${prefix}dogesticker
-│ *»* ${prefix}patricksticker
-│ *»* ${prefix}lovesticker
-│ *»* ${prefix}gura
-│ *»* ${prefix}paimon
-│ *»* ${prefix}mukelu
 │ *»* ${prefix}myip
-│ *»* ${prefix}sanime
 │ *»* ${prefix}dinokuning 
 ╰────❍
 ╭──❍「 *Downloader Menu* 」
