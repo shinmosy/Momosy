@@ -5,6 +5,7 @@ const chalk = require('chalk')
 global.owner = ['6281395861695']
 global.ownernomer = "6281395861695"
 global.premium = ['6281395861695']
+global.keys = 'QaepQXxR' //ganti apikey lu (https://api.botcahx.live)
 global.packname = 'Sticker By'
 global.author = 'BOTCAHX'
 global.jumlha = '999'
